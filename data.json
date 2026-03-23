@@ -1,0 +1,17 @@
+[
+  {
+    "titulo": "Ensalada Fit de Atún",
+    "descripcion": "Una receta rápida, fresca y llena de proteína.",
+    "link": "alimentacion.html"
+  },
+  {
+    "titulo": "Rutina de Cardio en Casa",
+    "descripcion": "Quema calorías sin necesidad de equipo.",
+    "link": "rutinas.html"
+  },
+  {
+    "titulo": "Consejos de Hidratación",
+    "descripcion": "La importancia de beber agua durante el ejercicio.",
+    "link": "consejos.html"
+  }
+]

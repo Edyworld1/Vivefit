@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Iniciar Sesión | Vive Fit</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    .navbar-custom {
+      background-color: #5C7A4D;
+    }
+    body {
+      background-color: #f8f9fa;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="../bienvenido.html">Vive Fit</a>
+    <div class="ms-auto">
+      <a href="../bienvenido.html" class="btn btn-light btn-sm">Atrás</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-5">
+  <div class="col-md-5 mx-auto bg-white p-4 rounded shadow">
+    <h3 class="text-center mb-4">Iniciar Sesión</h3>
+
+    <form onsubmit="return ejecutarLogin(event)">
+      <div class="mb-3">
+        <label class="form-label">Correo</label>
+        <input type="email" id="correoLogin" class="form-control" placeholder="ejemplo@correo.com" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Contraseña</label>
+        <input type="password" id="passLogin" class="form-control" placeholder="Tu contraseña" required>
+      </div>
+
+      <button type="submit" class="btn btn-success w-100">
+        Entrar
+      </button>
+    </form>
+
+    <div class="mt-3 text-center">
+      <p class="small">¿No tienes cuenta? <a href="crear_usuario.html">Regístrate aquí</a></p>
+
+      <p class="text-center">
+        <a href="recuperar.html">¿Olvidaste tu contraseña?</a>
+</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  async function ejecutarLogin(event) {
+    event.preventDefault(); // Evita que se recargue la página
+
+    // 1. Obtener lo que el usuario escribió
+    const email = document.getElementById("correoLogin").value;
+    const password = document.getElementById("passLogin").value;
+
+    try {
+      // 2. Enviar los datos al servidor Node.js
+      const respuesta = await fetch('/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+      });
+
+      const resultado = await respuesta.json();
+
+      if (respuesta.ok) {
+        // 3. SI TODO SALE BIEN:
+        // Guardamos el Token JWT para que el navegador "recuerde" la sesión
+        localStorage.setItem('token', resultado.token);
+        
+        alert("¡Bienvenido de nuevo! Acceso concedido.");
+        
+        // Te manda a la página de bienvenida o recetas
+        window.location.href = "../bienvenido.html"; 
+      } else {
+        // 4. SI HAY ERROR (Datos incorrectos)
+        alert("Error: " + (resultado.error || "Credenciales incorrectas"));
+      }
+
+    } catch (error) {
+      console.error("Error en la conexión:", error);
+      alert("No se pudo conectar con el servidor. ¿Ya escribiste 'node server.js' en la terminal?");
+    }
+  }
+</script>
+
+</body>
+</html>

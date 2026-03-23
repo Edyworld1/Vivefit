@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Rutina para Principiantes</title>
+<link rel="stylesheet" href="css/rutinas.css">
+</head>
+
+<body>
+ 
+<header>
+    <h1>Rutina para Principiantes</h1>
+    <nav>
+        <a href="bienvenido.html">Volver a Inicio</a>
+    </nav>
+</header>
+
+<div class="layout">
+
+    <div class="columna-izquierda">
+
+        <div class="card">
+            <img src="https://storage.googleapis.com/uriach--corp-web--pro--fisiocrem-django--resources--df81/original_images/ejercicios-fortalecer-gluteo.jpeg" alt="Sentadillas">
+            <h2>1. Piernas y glúteos (3 series cada uno)</h2>
+            <p>Sentadillas – 15 repeticiones</p>
+            <p>Zancadas alternas – 10 por pierna</p>
+            <p>Puente de glúteos en el suelo – 20 repeticiones</p>
+            <p>Sentadilla sumo – 12 repeticiones</p>
+            <p>Elevaciones de talones – 20 repeticiones</p>
+        </div>
+
+        <div class="card">
+            <img src="https://i.blogs.es/e05852/flexiones/450_1000.jpeg" alt="Flexiones">
+            <h2>2. Parte superior del cuerpo (3 series de 10 repeticiones)</h2>
+            <p>Flexiones (puedes apoyarte en las rodillas si lo necesitas)</p>
+            <p>Remo con mochila o toalla (espalda)</p>
+            <p>Fondos de tríceps en silla</p>
+            <p>Press de hombros con botellas o mancuernas</p>
+            <p>Plancha lateral – 30 segundos por lado</p>
+        </div>
+
+        <div class="card">
+            <img src="https://cdn0.uncomo.com/es/posts/1/5/7/la_bicicleta_50751_11_600.jpg" alt="Cardio y core">
+            <h2>3. Cardio + Core (en circuito x 3 vueltas)</h2>
+            <p>Jumping jacks – 1 minuto</p>
+            <p>Plancha frontal – 45 segundos</p>
+            <p>Montañistas – 30 segundos</p>
+            <p>Crunch abdominal – 20 repeticiones</p>
+            <p>Sentadillas con salto – 10 repeticiones</p>
+        </div>
+
+        <div class="card">
+            <img src="https://granvita.com/wp-content/uploads/2024/01/ejercicios-movilidad-articular-en-casa.jpg" alt="Piernas y movilidad">
+            <h2>4. Piernas y movilidad (3 series de 12 repeticiones)</h2>
+            <p>Sentadilla isométrica contra la pared – 30 segundos</p>
+            <p>Step-up en escalón – 10 por pierna</p>
+            <p>Estiramiento dinámico de isquiotibiales</p>
+            <p>Desplantes laterales – 12 por pierna</p>
+            <p>Elevaciones de piernas acostado – 15 repeticiones</p>
+        </div>
+
+        <div class="card">
+            <img src="https://blog.oncosalud.pe/hubfs/entrenamiento%20funcional.jpg" alt="Cuerpo completo funcional">
+            <h2>5. Cuerpo completo funcional (4 series)</h2>
+            <p>Burpees – 10 repeticiones</p>
+            <p>Flexiones – 10 repeticiones</p>
+            <p>Sentadillas – 15 repeticiones</p>
+            <p>Plancha – 1 minuto</p>
+            <p>Puente de glúteos – 20 repeticiones</p>
+        </div>
+
+        <div class="card">
+            <img src="https://media.gq.com.mx/photos/601dbd8833350b73fb9a70bc/16:9/w_2560%2Cc_limit/foam%2520GettyImages-1265162147.jpg" alt="Días de descanso">
+            <h2>6. Los días de descanso</h2>
+            <p>Caminatas al aire libre</p>
+            <p>Estiramientos o yoga suave</p>
+            <p>Respiración consciente</p>
+            <p>Rutinas de movilidad</p>
+        </div>
+
+    </div>
+
+</div>
+
+<footer class="footer">
+    <p>© 2026 ViveFit | Camino a mejorar tu salud</p>
+</footer>
+
+<header>
+    <button onclick="modoOscuro()" class="modo-btn">
+Modo oscuro
+
+
+</button>
+
+<button onclick="aumentarTexto()" class="modo-btn" style="top: 70px;">
+A+
+</button>
+
+<button onclick="disminuirTexto()" class="modo-btn" style="top: 120px;">
+A-
+</button>
+
+</header>
+
+<script>
+function modoOscuro(){
+  document.body.classList.toggle("dark");
+}
+
+let tamañoTexto = 100;
+
+function aumentarTexto(){
+  tamañoTexto += 10;
+  document.body.style.fontSize = tamañoTexto + "%";
+}
+
+function disminuirTexto(){
+  tamañoTexto -= 10;
+  document.body.style.fontSize = tamañoTexto + "%";
+}
+
+</script>
+
+</body>
+</html>

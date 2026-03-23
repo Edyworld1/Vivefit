@@ -1,0 +1,99 @@
+/* ====== Estructura base ====== */
+
+.header{
+  background:#5C7A4D;
+  color:white;
+  text-align:center;
+  padding:3rem 1rem;
+}
+
+.seccion{
+  padding:4rem 1rem;
+}
+
+.seccion:nth-child(even){
+  background:white;
+}
+
+.img-consejo{
+  width:100%;
+  border-radius:20px;
+  height:350px;
+  object-fit:cover;
+  box-shadow:0 10px 25px rgba(0,0,0,0.15);
+  transition:transform .3s ease;
+}
+
+.img-consejo:hover{
+  transform:scale(1.03);
+}
+
+.titulo{
+  color:#5C7A4D;
+  font-weight:700;
+  margin-bottom:1rem;
+}
+
+.btn-volver{
+  background:#5C7A4D;
+  border:none;
+}
+
+.btn-volver:hover{
+  background:#4a633d;
+}
+
+footer{
+  background:#333;
+  color:white;
+  text-align:center;
+  padding:2rem;
+}
+
+/* ====== Alternar imagen/texto automáticamente ====== */
+
+/* Solo en pantallas medianas en adelante */
+@media (min-width: 768px){
+
+  .seccion:nth-of-type(even) .row{
+    flex-direction: row-reverse;
+  }
+
+}
+
+/* BOTON */
+.modo-btn{
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: bold;
+  z-index: 9999;
+}
+
+/* MODO OSCURO */
+body.dark{
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body.dark .header{
+  background:#2e3b2a;
+}
+
+body.dark .seccion:nth-child(even){
+  background:#1a1a1a;
+}
+
+body.dark .titulo{
+  color:#66bb6a;
+}
+
+body.dark .img-consejo{
+  box-shadow:0 10px 25px rgba(0,0,0,0.6);
+}
+
+body.dark footer{
+  background:#000;
+}

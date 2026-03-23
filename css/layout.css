@@ -1,0 +1,35 @@
+.bienvenida-header {
+  background: #5C7A4D;
+  color: white;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.bienvenida-main {
+  padding: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+#resultados {
+  margin-top: 2rem;
+}
+
+/* BOTONES DE TEXTO */
+.modo-btn{
+    position: fixed;
+    right: 20px;
+    background: #2e7d32;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    z-index: 9999;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.modo-btn:hover{
+    background:#1b5e20;
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Recuperar Contraseña | Vive Fit</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    .navbar-custom { background-color: #5C7A4D; }
+
+    body {
+      background-color: #f8f9fa;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .card-recuperar { 
+      max-width: 450px; 
+      margin: auto; 
+      background: white; 
+      padding: 30px; 
+      border-radius: 12px; 
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+    }
+
+    .btn-success {
+      background-color: #4CAF50;
+      border: none;
+      padding: 10px;
+    }
+
+    .btn-success:hover {
+      background-color: #45a049;
+    }
+
+    #mensaje {
+      font-weight: bold;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom mb-5">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">Vive Fit</a>
+    <div class="ms-auto">
+      <a href="login.html" class="btn btn-light btn-sm">Atrás</a>
+    </div>
+  </div>
+</nav>
+
+<!-- CONTENIDO -->
+<div class="container">
+  <div class="card-recuperar">
+    <h3 class="text-center mb-4">Recuperar Cuenta</h3>
+    <p class="text-muted text-center small">
+      Ingresa tu correo y tu nueva contraseña.
+    </p>
+    
+    <form id="formRecuperar">
+      
+      <div class="mb-3">
+        <label class="form-label">Correo Electrónico</label>
+        <input type="email" id="email" class="form-control" placeholder="ejemplo@correo.com" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Nueva contraseña</label>
+        <input type="password" id="nuevaPassword" class="form-control" required>
+      </div>
+      
+      <button type="submit" class="btn btn-success w-100">
+        Cambiar contraseña
+      </button>
+    </form>
+
+    <div id="mensaje" class="text-center"></div>
+
+  </div>
+</div>
+
+<!-- SCRIPT (EL TUYO, FUNCIONAL) -->
+<script>
+document.getElementById('formRecuperar').addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const email = document.getElementById('email').value;
+  const nuevaPassword = document.getElementById('nuevaPassword').value;
+  const mensajeDiv = document.getElementById('mensaje');
+
+  mensajeDiv.innerText = "Cargando...";
+  mensajeDiv.style.color = "black";
+
+  try {
+    const res = await fetch('http://localhost:3000/api/recuperar', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, nuevaPassword })
+    });
+
+    const data = await res.json();
+
+    if (data.mensaje) {
+      mensajeDiv.innerText = "✅ " + data.mensaje;
+      mensajeDiv.style.color = "green";
+    } else {
+      mensajeDiv.innerText = "❌ " + data.error;
+      mensajeDiv.style.color = "red";
+    }
+
+  } catch (error) {
+    mensajeDiv.innerText = "⚠️ Error de conexión";
+    mensajeDiv.style.color = "orange";
+  }
+});
+</script>
+
+</body>
+</html>

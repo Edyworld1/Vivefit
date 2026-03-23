@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ensaladas Saludables</title>
+
+<style>
+:root{
+    --verde:#2e7d32;
+    --verde-claro:#4caf50;
+    --fondo:#f5f7f6;
+    --texto:#333;
+    --card:#ffffff;
+}
+
+body.dark{
+    --fondo:#121212;
+    --texto:#e0e0e0;
+    --card:#1f1f1f;
+}
+
+body{
+    margin:0;
+    font-family:'Segoe UI', sans-serif;
+    background:var(--fondo);
+    color:var(--texto);
+    transition:0.3s ease;
+}
+
+/* BOTON MODO OSCURO */
+.toggle{
+    position:fixed;
+    top:20px;
+    right:20px;
+    background:var(--verde);
+    color:white;
+    border:none;
+    padding:10px 14px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+/* TITULO */
+.titulo{
+    text-align:center;
+    margin-top:40px;
+    font-size:2.7rem;
+    color:var(--verde);
+}
+
+.descripcion{
+    text-align:center;
+    max-width:650px;
+    margin:10px auto 40px auto;
+    line-height:1.6;
+}
+
+/* GRID */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
+    padding:30px;
+}
+
+/* TARJETA */
+.card{
+    background:var(--card);
+    border-radius:18px;
+    box-shadow:0 8px 22px rgba(0,0,0,0.08);
+    overflow:hidden;
+    transition:0.3s ease;
+    display:flex;
+    flex-direction:column;
+}
+
+.card:hover{
+    transform:translateY(-8px) scale(1.02);
+}
+
+.card img{
+    height:180px;
+    object-fit:cover;
+    margin:12px;
+    border-radius:12px;
+    border:4px solid var(--verde-claro);
+}
+
+.card-body{
+    padding:15px 18px 20px 18px;
+    text-align:center;
+}
+
+.card h3{
+    margin:0 0 8px 0;
+    color:var(--verde);
+}
+
+.card p{
+    font-size:0.95rem;
+    opacity:0.8;
+}
+
+.btn{
+    margin-top:12px;
+    background:var(--verde);
+    color:white;
+    border:none;
+    padding:9px 14px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+/* MODAL */
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.6);
+    display:none;
+    justify-content:center;
+    align-items:center;
+}
+
+.modal-content{
+    background:var(--card);
+    padding:30px;
+    border-radius:16px;
+    max-width:420px;
+    width:90%;
+    animation:aparecer .3s ease;
+}
+
+@keyframes aparecer{
+    from{transform:scale(.8);opacity:0}
+    to{transform:scale(1);opacity:1}
+}
+
+.cerrar{
+    float:right;
+    cursor:pointer;
+    font-weight:bold;
+    font-size:20px;
+}
+
+.btn-atras{
+    position:fixed;
+    top:20px;
+    left:20px;
+    background:#2e7d32 !important;
+    color:white !important;
+    border:none;
+    padding:12px 18px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
+    font-size:14px;
+    z-index:9999;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+.btn-atras:hover{
+    background:#1b5e20 !important;
+}
+
+/* BOTONES DE TEXTO */
+.modo-btn{
+    position: fixed;
+    right: 20px;
+    background: #2e7d32;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    z-index: 9999;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.modo-btn:hover{
+    background:#1b5e20;
+}
+
+</style>
+</head>
+
+<body>
+
+<button onclick="window.location.href='../alimentacion.html'" class="btn-atras">
+⬅ Atrás
+</button>
+
+<button class="toggle" onclick="modoOscuro()">Modo oscuro</button>
+
+<button onclick="aumentarTexto()" class="modo-btn" style="top: 70px;">
+A+
+</button>
+
+<button onclick="disminuirTexto()" class="modo-btn" style="top: 120px;">
+A-
+</button>
+
+<h1 class="titulo">Ensaladas Saludables</h1>
+<p class="descripcion">
+Recetas frescas llenas de vitaminas, fibra y antioxidantes. Descubre opciones ligeras, nutritivas y deliciosas para cualquier momento del día.
+</p>
+
+<div class="grid">
+
+<div class="card">
+<img src="https://images.pexels.com/photos/1213710/pexels-photo-1213710.jpeg">
+<div class="card-body">
+<h3>Ensalada César Ligera</h3>
+<p>Pollo a la plancha, lechuga fresca y aderezo saludable.</p>
+<button class="btn" onclick="verReceta('Ingredientes: lechuga, pollo, yogurt, limón. Preparación: mezclar todo y servir frío.')">Ver receta</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg">
+<div class="card-body">
+<h3>Ensalada Mediterránea</h3>
+<p>Sabores frescos con aceite de oliva extra virgen.</p>
+<button class="btn" onclick="verReceta('Ingredientes: tomate, pepino, aceitunas, queso feta. Preparación: cortar y mezclar con aceite de oliva.')">Ver receta</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.pexels.com/photos/257816/pexels-photo-257816.jpeg">
+<div class="card-body">
+<h3>Ensalada de Quinoa</h3>
+<p>Alta en proteína vegetal y muy nutritiva.</p>
+<button class="btn" onclick="verReceta('Ingredientes: quinoa cocida, espinaca, aguacate. Preparación: mezclar y agregar limón.')">Ver receta</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.pexels.com/photos/1092730/pexels-photo-1092730.jpeg">
+<div class="card-body">
+<h3>Ensalada Tropical</h3>
+<p>Dulce, fresca y llena de energía natural.</p>
+<button class="btn" onclick="verReceta('Ingredientes: mango, piña, lechuga, nuez. Preparación: mezclar y servir fría.')">Ver receta</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.pexels.com/photos/1435895/pexels-photo-1435895.jpeg">
+<div class="card-body">
+<h3>Ensalada Caprese</h3>
+<p>Clásica combinación italiana saludable.</p>
+<button class="btn" onclick="verReceta('Ingredientes: tomate, mozzarella, albahaca. Preparación: cortar y añadir aceite de oliva.')">Ver receta</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.pexels.com/photos/5938/food-salad-healthy-lunch.jpg">
+<div class="card-body">
+<h3>Ensalada Verde Detox</h3>
+<p>Ideal para limpiar y nutrir el organismo.</p>
+<button class="btn" onclick="verReceta('Ingredientes: espinaca, pepino, apio, aguacate. Preparación: mezclar todo.')">Ver receta</button>
+</div>
+</div>
+
+</div>
+
+
+<div class="modal" id="modal">
+<div class="modal-content">
+<span class="cerrar" onclick="cerrar()">×</span>
+<p id="textoReceta"></p>
+</div>
+</div>
+
+<script>
+function verReceta(texto){
+    document.getElementById('modal').style.display='flex'
+    document.getElementById('textoReceta').innerText=texto
+}
+
+function cerrar(){
+    document.getElementById('modal').style.display='none'
+}
+
+function modoOscuro(){
+    document.body.classList.toggle('dark')
+}
+
+let tamañoTexto = 100;
+
+function aumentarTexto(){
+  tamañoTexto += 10;
+  document.body.style.fontSize = tamañoTexto + "%";
+}
+
+function disminuirTexto(){
+  tamañoTexto -= 10;
+  document.body.style.fontSize = tamañoTexto + "%";
+}
+
+</script>
+
+</body>
+</html>

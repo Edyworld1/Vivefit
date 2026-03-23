@@ -1,0 +1,12 @@
+[
+  {
+    "titulo": "Rutina para principiantes",
+    "descripcion": "Ejercicios básicos para comenzar",
+    "link": "rutinas.html"
+  },
+  {
+    "titulo": "Dieta balanceada",
+    "descripcion": "Consejos para una alimentación saludable",
+    "link": "alimentacion.html"
+  }
+]

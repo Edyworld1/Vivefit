@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alimentación | Vive Fit</title>
+  
+  <link rel="stylesheet" href="bootstrap.min.css">
+
+  <link rel="stylesheet" href="css/alimentos.css">
+</head>
+
+<body class="inicio">
+
+<button onclick="window.location.href='bienvenido.html'" class="btn-atras">
+⬅ Atrás
+</button>
+
+<button onclick="modoOscuro()" class="modo-btn">
+Modo oscuro
+</button>
+
+<button onclick="aumentarTexto()" class="modo-btn" style="top: 70px;">
+A+
+</button>
+
+<button onclick="disminuirTexto()" class="modo-btn" style="top: 120px;">
+A-
+</button>
+
+<header class="bienvenida-header">
+  <h1>Alimentación Saludable</h1>
+  <p>Descubre recetas prácticas y nutritivas</p>
+</header>
+
+<main class="bienvenida-main">
+
+  <h2 class="text-center mb-5">Explora nuestras recetas</h2>
+
+  <div class="container">
+    <div class="row justify-content-center g-4">
+
+      <!-- ENSALADAS -->
+      <div class="col-12 col-sm-6 col-lg-3 d-flex">
+        <a href="alimentacion/ensaladas.html" class="text-decoration-none text-dark w-100">
+          <div class="card-alimento">
+            <img src="https://images.pexels.com/photos/1213710/pexels-photo-1213710.jpeg"
+                 alt="Ensaladas saludables">
+            <h5 class="categoria-titulo">Ensaladas</h5>
+          </div>
+        </a>
+      </div>
+
+      <!-- NOPALES -->
+      <div class="col-12 col-sm-6 col-lg-3 d-flex">
+        <a href="alimentacion/nopales.html" class="text-decoration-none text-dark w-100">
+          <div class="card-alimento">
+            <img src="https://www.onionringsandthings.com/wp-content/uploads/2018/04/nopales-salad-4a.jpg"
+                 alt="Platillos con nopales">
+            <h5 class="categoria-titulo">Nopales</h5>
+          </div>
+        </a>
+      </div>
+
+      <!-- ATÚN -->
+      <div class="col-12 col-sm-6 col-lg-3 d-flex">
+        <a href="alimentacion/atun.html" class="text-decoration-none text-dark w-100">
+          <div class="card-alimento">
+            <img src="https://cdn.pixabay.com/photo/2015/09/30/10/02/time-965184_1280.jpg"
+                 alt="Recetas con atún">
+            <h5 class="categoria-titulo">Atún</h5>
+          </div>
+        </a>
+      </div>
+
+      <!-- BEBIDAS -->
+      <div class="col-12 col-sm-6 col-lg-3 d-flex">
+        <a href="alimentacion/bebidas.html" class="text-decoration-none text-dark w-100">
+          <div class="card-alimento">
+            <img src="https://images.pexels.com/photos/96974/pexels-photo-96974.jpeg"
+                 alt="Bebidas saludables">
+            <h5 class="categoria-titulo">Bebidas</h5>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p>© 2026 Vive Fit</p>
+</footer>
+
+<script>
+function modoOscuro(){
+  document.body.classList.toggle("dark");
+}
+
+let tamañoTexto = 100;
+
+function aumentarTexto(){
+  tamañoTexto += 10;
+  document.body.style.fontSize = tamañoTexto + "%";
+}
+
+function disminuirTexto(){
+  tamañoTexto -= 10;
+  document.body.style.fontSize = tamañoTexto + "%";
+}
+
+</script>
+
+</body>
+</html>
