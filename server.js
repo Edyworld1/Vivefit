@@ -132,10 +132,6 @@ usuario.password = hashedPassword;
 // ENCENDER SERVIDOR
 const PORT = 3000;
 
-app.get('/', (req, res) => {
-  res.send("Servidor funcionando 🚀");
-});
-
 app.listen(PORT, () => {
     console.log(`🚀 Servidor listo en: http://localhost:${PORT}`);
 });
