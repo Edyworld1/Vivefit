@@ -128,7 +128,7 @@ app.post('/api/recuperar', async (req, res) => {
 
 // Ruta raíz
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+  res.sendFile(path.join(__dirname, 'bienvenido.html'));
 });
 
 // ENCENDER SERVIDOR
