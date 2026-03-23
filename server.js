@@ -113,11 +113,7 @@ app.post('/api/recuperar', async (req, res) => {
       return res.json({ error: "❌ Usuario no encontrado" });
     }
 
-    const salt = await bcrypt.genSalt(10);
-const hashedPassword = await bcrypt.hash(nuevaPassword, salt);
-
-usuario.password = hashedPassword;
-
+    usuario.password = nuevaPassword;
     await usuario.save();
 
     res.json({ mensaje: "✅ Contraseña actualizada correctamente" });
@@ -130,8 +126,8 @@ usuario.password = hashedPassword;
 
 
 // ENCENDER SERVIDOR
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
-    console.log(`🚀 Servidor listo en: http://localhost:${PORT}`);
+  console.log("Servidor corriendo en puerto " + PORT);
 });
