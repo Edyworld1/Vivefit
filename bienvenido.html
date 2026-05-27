@@ -25,6 +25,10 @@ A+
 A-
 </button>
 
+<button onclick="modoOscuro()" class="modo-btn" style="top: 170px;">
+Modo oscuro
+</button>
+
 <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
   <div class="container">
     <a class="navbar-brand fw-bold" href="#">Vive Fit</a>
@@ -134,6 +138,10 @@ function aumentarTexto(){
 function disminuirTexto(){
   tamañoTexto -= 10;
   document.body.style.fontSize = tamañoTexto + "%";
+}
+
+function modoOscuro(){
+  document.body.classList.toggle("dark");
 }
 
 </script>

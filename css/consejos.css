@@ -1,7 +1,7 @@
 /* ====== Estructura base ====== */
 
 .header{
-  background:#5C7A4D;
+  background:#6196cc;
   color:white;
   text-align:center;
   padding:3rem 1rem;
@@ -29,18 +29,18 @@
 }
 
 .titulo{
-  color:#5C7A4D;
+  color:#6196cc;
   font-weight:700;
   margin-bottom:1rem;
 }
 
 .btn-volver{
-  background:#5C7A4D;
+  background:#6196cc;
   border:none;
 }
 
 .btn-volver:hover{
-  background:#4a633d;
+  background:#6196cc;
 }
 
 footer{
@@ -79,7 +79,7 @@ body.dark{
 }
 
 body.dark .header{
-  background:#2e3b2a;
+  background:#6196cc;
 }
 
 body.dark .seccion:nth-child(even){
@@ -87,7 +87,7 @@ body.dark .seccion:nth-child(even){
 }
 
 body.dark .titulo{
-  color:#66bb6a;
+  color:#6196cc;
 }
 
 body.dark .img-consejo{

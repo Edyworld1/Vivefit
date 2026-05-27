@@ -1,5 +1,5 @@
 .bienvenida-header {
-  background: #5C7A4D;
+  background: #6196cc;
   color: white;
   padding: 3rem 2rem;
   text-align: center;
@@ -19,7 +19,7 @@
 .modo-btn{
     position: fixed;
     right: 20px;
-    background: #2e7d32;
+    background: #6196cc;
     color: white;
     border: none;
     padding: 8px 12px;
@@ -31,5 +31,59 @@
 }
 
 .modo-btn:hover{
-    background:#1b5e20;
+    background:#6196cc;
+}
+
+/* BOTON */
+.modo-btn{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #6196cc;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    z-index: 9999;
+}
+
+.modo-btn:hover{
+    background:#6196cc;
+}
+
+/* MODO OSCURO */
+body.dark{
+    background:#121212;
+    color:white;
+}
+
+body.dark .bienvenida-header{
+    background:#6196cc;
+}
+
+body.dark .card-alimento{
+    background:#1f1f1f;
+    color:white;
+}
+
+body.dark .categoria-titulo{
+    color:white;
+}
+
+body.dark footer{
+    background:#000;
+}
+
+/* IMPORTANTE (links de Bootstrap) */
+body.dark a{
+    color:white !important;
+}
+
+/* TITULOS EN MODO OSCURO */
+body.dark h1,
+body.dark h2,
+body.dark h5 {
+    color: white !important;
 }

@@ -8,7 +8,7 @@
 
 .login-container h2 {
   text-align: center;
-  color: #5C7A4D;
+  color: #6196cc;
   margin-bottom: 10px;
 }
 
@@ -20,7 +20,7 @@
 
 .login-form input {
   padding: 10px;
-  border: 2px solid #8BAF6A;
+  border: 2px solid #6196cc;
   border-radius: 10px;
   font-size: 1rem;
   transition: 0.2s;
