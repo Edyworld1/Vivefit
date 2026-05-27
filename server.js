@@ -14,7 +14,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname)); 
 
 // 2. CONEXIÓN A BASE DE DATOS (NoSQL - MongoDB)
-mongoose.connect('mongodb://localhost:27017/recetasAmorDB')
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://vivefit:test@cluster0.n9kcr34.mongodb.net/recetasAmorDB?appName=Cluster0';
+mongoose.connect(MONGODB_URI)
     .then(() => console.log("¡Conectado a MongoDB con éxito! ✅"))
     .catch(err => console.error("Error al conectar a Mongo:", err));
 
@@ -124,6 +125,11 @@ app.post('/api/recuperar', async (req, res) => {
   }
 });
 
+
+// Ruta raíz
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'bienvenido.html'));
+});
 
 // ENCENDER SERVIDOR
 const PORT = process.env.PORT || 3000;
