@@ -4,113 +4,196 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Inicio | Vive Fit</title>
-
-
+ 
+ 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
+ 
  
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/pages.css">
 </head>
-
+ 
 <body>
-
+ 
 <button onclick="aumentarTexto()" class="modo-btn" style="top: 70px;">
 A+
 </button>
-
+ 
 <button onclick="disminuirTexto()" class="modo-btn" style="top: 120px;">
 A-
 </button>
-
+ 
 <button onclick="modoOscuro()" class="modo-btn" style="top: 170px;">
 Modo oscuro
 </button>
-
+ 
 <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
   <div class="container">
     <a class="navbar-brand fw-bold" href="#">Vive Fit</a>
-
+ 
     <form class="d-flex ms-auto me-3" role="search" onsubmit="return false;">
       <input id="buscador" class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Buscar">
       <button class="btn btn-light" type="button" onclick="buscar()">Buscar</button>
     </form>
-
+ 
     <div>
       <a href="Log/login.html" class="btn btn-light btn-sm me-2">Iniciar Sesión</a>
     </div>
   </div>
 </nav>
-
+ 
 <header class="bienvenida-header">
   <h1>Camino a mejorar tu salud</h1>
   <p>Explora rutinas, alimentación y consejos fitness</p>
 </header>
-
+ 
 <main class="bienvenida-main">
-
+ 
   <div id="resultados" class="row g-4"></div>
-
-  <h2 class="text-center mb-5">Explora nuestras secciones</h2>
-
-  <div class="row text-center g-4">
-
-    <div class="col-md-4">
-      <a href="rutinas.html" class="text-decoration-none text-dark">
-        <div class="imagen-bienvenida">
-          <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e" alt="Rutinas de ejercicio">
-        </div>
-        <h5 class="categoria-titulo">Rutinas</h5>
-      </a>
-    </div>
-
-    <div class="col-md-4">
-      <a href="alimentacion.html" class="text-decoration-none text-dark">
-        <div class="imagen-bienvenida">
-          <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061" alt="Alimentación saludable">
-        </div>
-        <h5 class="categoria-titulo">Alimentación</h5>
-      </a>
-    </div>
-
-    <div class="col-md-4">
-      <a href="consejos.html" class="text-decoration-none text-dark">
-        <div class="imagen-bienvenida">
-          <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438" alt="Consejos fitness">
-        </div>
-        <h5 class="categoria-titulo">Consejos</h5>
-      </a>
-    </div>
+ 
+<h2 class="text-center mb-4"></h2>
+ 
+<style>
+.bienvenida-header{
+  
+    padding: 20px 20px !important;
+}
+ 
+.bienvenida-header h1{
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+ 
+.bienvenida-header p{
+    margin-bottom: 0;
+}
+ 
+.contenedor-secciones{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:40px;
+    flex-wrap:wrap;
+}
+ 
+.imagen-seccion img{
+    max-width:400px;
+    width:100%;
+    height:auto;
+    animation: flotar 3s ease-in-out infinite;
+}
+ 
+@keyframes flotar{
+    0%{
+        transform:translateY(0px) scale(1);
+    }
+    50%{
+        transform:translateY(-12px) scale(1.03);
+    }
+    100%{
+        transform:translateY(0px) scale(1);
+    }
+}
+ 
+.botones-seccion{
+    width:200px;
+}
+ 
+.btn-vivefit{
+    background-color:#6196CC;
+    color:white !important;
+    border:none;
+    margin-bottom:15px;
+    padding:12px;
+    font-size:1.1rem;
+    transition:0.3s;
+}
+ 
+.btn-vivefit:hover{
+    background-color:#1A1A7F;
+    color:white !important;
+    transform:translateY(-3px);
+}
+ 
+.btn-vivefit:active{
+    background-color:#1A1A7F !important;
+    color:white !important;
+}
+ 
+.btn-vivefit:focus{
+    background-color:#1A1A7F !important;
+    color:white !important;
+    box-shadow:none;
+}
+</style>
+ 
+<div class="contenedor-secciones">
+ 
+  <div class="imagen-seccion">
+    <img id="imagenPrincipal"
+         src="580b585b2edbce24c47b2b98.png"
+         alt="Vive Fit">
+  </div>
+ 
+  <div class="botones-seccion">
+<a href="rutinas.html"
+   class="btn btn-vivefit w-100"
+   onclick="cambiarImagen('rutinas.jpg')">
+   Rutinas
+</a>
+ 
+<a href="alimentacion.html"
+   class="btn btn-vivefit w-100"
+   onclick="cambiarImagen('alimentacion.png')">
+   Alimentación
+</a>
+ 
+<a href="consejos.html"
+   class="btn btn-vivefit w-100"
+   onclick="cambiarImagen('consejos.png')">
+   Consejos
+</a>
+ 
+<a href="imc.html"
+   class="btn btn-vivefit w-100"
+   onclick="cambiarImagen('imc.png')">
+   Calcula tu IMC
+</a>
 
   </div>
-
+ 
+</div>
+ 
 </main>
-
-<footer>
-  <p>© 2026 Vive Fit</p>
+ 
+<footer style="background-color: #333333; color: white; text-align: center; padding: 20px; font-size: 0.9rem;">
+    <p style="margin-bottom: 10px;">© 2026 Vive Fit | Camino a mejorar tu salud</p>
+    <p>
+        <a href="privacidad.html" style="color: #6ba1d2; text-decoration: none; font-weight: bold;">Aviso de Privacidad y Términos de Uso</a>
+    </p>
 </footer>
-
+ 
 <script>
 let datos = [];
-
+ 
 fetch('data.json')
   .then(response => response.json())
   .then(data => datos = data);
-
+ 
 function buscar() {
   const termino = document.getElementById('buscador').value.toLowerCase().trim();
   const resultados = document.getElementById('resultados');
   resultados.innerHTML = '';
-
+ 
   if (!termino) return;
-
+ 
   const filtrados = datos.filter(item =>
     item.titulo.toLowerCase().includes(termino) ||
     item.descripcion.toLowerCase().includes(termino)
   );
-
+ 
   filtrados.forEach(item => {
     resultados.innerHTML += `
       <div class="col-md-4">
@@ -122,29 +205,34 @@ function buscar() {
       </div>
     `;
   });
-
+ 
   if (filtrados.length === 0) {
     resultados.innerHTML = '<p class="text-center">No se encontraron resultados</p>';
   }
 }
-
+ 
 let tamañoTexto = 100;
-
+ 
 function aumentarTexto(){
   tamañoTexto += 10;
   document.body.style.fontSize = tamañoTexto + "%";
 }
-
+ 
 function disminuirTexto(){
   tamañoTexto -= 10;
   document.body.style.fontSize = tamañoTexto + "%";
 }
-
+ 
 function modoOscuro(){
   document.body.classList.toggle("dark");
 }
-
+ 
+function cambiarImagen(ruta){
+  document.getElementById("imagenPrincipal").src = ruta;
+}
+ 
 </script>
-
+ 
 </body>
+
 </html>
