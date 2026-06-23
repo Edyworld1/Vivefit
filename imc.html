@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calcula tu IMC | Vive Fit</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    background: #f5f7fa;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-custom{
+    background-color: #6196CC;
+}
+
+.bienvenida-header{
+    background: linear-gradient(135deg,#6196CC,#6196CC);
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.bienvenida-header h1{
+    font-weight: bold;
+}
+
+.contenedor{
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.tarjeta{
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,.1);
+    margin-bottom: 30px;
+}
+
+.btn-vivefit{
+    background-color:#6196CC;
+    color:white;
+    border:none;
+    padding:12px;
+    transition:0.3s;
+}
+
+.btn-vivefit:hover{
+    background-color:#1A1A7F;
+    color:white;
+}
+
+.resultado{
+    margin-top:20px;
+    padding:15px;
+    border-radius:10px;
+    font-size:1.2rem;
+    font-weight:bold;
+    display:none;
+}
+
+.tabla-imc{
+    width:100%;
+    text-align:center;
+}
+
+.tabla-imc th{
+    background:#6196CC;
+    color:white;
+}
+
+footer{
+    background-color:#333333;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
+}
+
+.imagen-imc{
+    width:100%;
+    max-width:350px;
+    display:block;
+    margin:auto;
+    animation: flotar 3s ease-in-out infinite;
+}
+
+@keyframes flotar{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+    100%{transform:translateY(0);}
+}
+
+.modo-btn{
+    position: fixed;
+    right: 15px;
+    z-index: 999;
+    background: #6196CC;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 14px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.modo-btn:hover{
+    background: #1A1A7F;
+}
+
+.dark{
+    background-color: #121212 !important;
+    color: white !important;
+}
+
+.dark .tarjeta{
+    background-color: #1e1e1e;
+    color: white;
+}
+
+.dark .table{
+    color: white;
+}
+
+.dark .form-control{
+    background-color: #2d2d2d;
+    color: white;
+    border-color: #555;
+}
+
+.dark .form-control::placeholder{
+    color: #ccc;
+}
+
+.dark footer{
+    background-color: #111;
+}
+
+.dark .navbar-custom{
+    background-color: #1A1A7F;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="bienvenido.html">Vive Fit</a>
+    </div>
+</nav>
+
+<header class="bienvenida-header">
+    <h1>Calcula tu Índice de Masa Corporal (IMC)</h1>
+    <p>Conoce si tu peso se encuentra dentro de un rango saludable</p>
+</header>
+
+<div class="contenedor">
+
+    <div class="tarjeta">
+        <div class="row align-items-center">
+
+            <div class="col-md-6">
+                <h2>¿Qué es el IMC?</h2>
+
+                <p>
+                    El Índice de Masa Corporal (IMC) es una medida utilizada para
+                    relacionar el peso y la estatura de una persona. Permite
+                    identificar si una persona se encuentra en un rango de peso
+                    bajo, normal, sobrepeso u obesidad.
+                </p>
+
+                <p>
+                    Aunque no mide directamente la grasa corporal, es una
+                    herramienta sencilla y ampliamente utilizada por
+                    profesionales de la salud para evaluar el estado nutricional.
+                </p>
+
+                <h3>¿Por qué es importante?</h3>
+
+                <ul>
+                    <li>Ayuda a detectar riesgos para la salud.</li>
+                    <li>Permite identificar sobrepeso u obesidad.</li>
+                    <li>Favorece hábitos saludables.</li>
+                    <li>Sirve como referencia para metas de bienestar.</li>
+                    <li>Promueve el seguimiento de la salud física.</li>
+                </ul>
+            </div>
+
+            <div class="col-md-6 text-center">
+                <img src="libra.png"
+                     class="imagen-imc"
+                     alt="IMC">
+            </div>
+
+        </div>
+    </div>
+
+    <div class="tarjeta">
+
+        <h2 class="text-center mb-4">Calculadora de IMC</h2>
+
+        <div class="row">
+
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Peso (kg)</label>
+                <input type="number"
+                       id="peso"
+                       class="form-control"
+                       placeholder="Ejemplo: 70">
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Estatura (m)</label>
+                <input type="number"
+                       step="0.01"
+                       id="altura"
+                       class="form-control"
+                       placeholder="Ejemplo: 1.75">
+            </div>
+
+        </div>
+
+        <div class="text-center">
+            <button class="btn btn-vivefit" onclick="calcularIMC()">
+                Calcular IMC
+            </button>
+        </div>
+
+        <div id="resultado" class="resultado text-center"></div>
+
+    </div>
+
+    <div class="tarjeta">
+
+        <h2 class="text-center mb-4">Clasificación del IMC</h2>
+
+        <table class="table table-bordered tabla-imc">
+
+            <thead>
+                <tr>
+                    <th>IMC</th>
+                    <th>Clasificación</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Menor de 18.5</td>
+                    <td>Bajo peso</td>
+                </tr>
+
+                <tr>
+                    <td>18.5 - 24.9</td>
+                    <td>Peso normal</td>
+                </tr>
+
+                <tr>
+                    <td>25 - 29.9</td>
+                    <td>Sobrepeso</td>
+                </tr>
+
+                <tr>
+                    <td>30 o más</td>
+                    <td>Obesidad</td>
+                </tr>
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2026 Vive Fit | Camino a mejorar tu salud</p>
+</footer>
+
+<script>
+
+function calcularIMC(){
+
+    let peso = parseFloat(document.getElementById("peso").value);
+    let altura = parseFloat(document.getElementById("altura").value);
+
+    if(isNaN(peso) || isNaN(altura) || peso <= 0 || altura <= 0){
+
+        alert("Por favor ingresa valores válidos.");
+        return;
+    }
+
+    let imc = peso / (altura * altura);
+
+    let clasificacion = "";
+
+    if(imc < 18.5){
+        clasificacion = "Bajo peso";
+    }
+    else if(imc < 25){
+        clasificacion = "Peso normal";
+    }
+    else if(imc < 30){
+        clasificacion = "Sobrepeso";
+    }
+    else{
+        clasificacion = "Obesidad";
+    }
+
+    let resultado = document.getElementById("resultado");
+
+    resultado.style.display = "block";
+
+    resultado.innerHTML =
+        "Tu IMC es <strong>" +
+        imc.toFixed(2) +
+        "</strong><br>Clasificación: <strong>" +
+        clasificacion +
+        "</strong>";
+}
+
+</script>
+
+</body>
+<button onclick="aumentarTexto()" class="modo-btn" style="top: 70px;">
+A+
+</button>
+
+<button onclick="disminuirTexto()" class="modo-btn" style="top: 120px;">
+A-
+</button>
+
+<button onclick="modoOscuro()" class="modo-btn" style="top: 170px;">
+Modo oscuro
+</button>
+</html>
+```
