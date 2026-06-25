@@ -15,6 +15,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname)); 
 
+// Forzar a que la página de inicio sea bienvenido.html
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'bienvenido.html'));
+});
+
 // 🔒 CONFIGURACIÓN DE NODEMAILER CORREGIDA
 const transportereMail = nodemailer.createTransport({
     service: 'gmail', // Usar el servicio nativo evita problemas de configuración de puertos
