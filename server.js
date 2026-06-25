@@ -13,12 +13,14 @@ const JWT_SECRET = 'CLAVE_SECRETA_VIVE_FIT_2026';
 // 1. CONFIGURACIÓN
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(__dirname)); 
 
-// Forzar a que la página de inicio sea bienvenido.html
+// RUTA DE INICIO FORZADA (Ponla AQUÍ, arriba del static)
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'bienvenido.html'));
 });
+
+// El static se queda abajo para que siga cargando tus CSS, imágenes y scripts
+app.use(express.static(__dirname));
 
 // 🔒 CONFIGURACIÓN DE NODEMAILER CORREGIDA
 const transportereMail = nodemailer.createTransport({
